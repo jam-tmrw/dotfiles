@@ -75,8 +75,8 @@ if executable('ag')
 endif
 
 " Make it obvious where 80 characters is
-set textwidth=80
-set colorcolumn=+1
+" set textwidth=80
+" set colorcolumn=+1
 
 " Numbers
 set number
@@ -102,9 +102,17 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R .<CR>
-
+set tags=./tags,tags;
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
+
+" Turning off keys, no turning back
+noremap jk <es>
+noremap <esc> <nop>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
