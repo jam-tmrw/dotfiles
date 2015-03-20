@@ -107,7 +107,7 @@ set tags=./tags,tags;
 nnoremap <leader><leader> <c-^>
 
 " Turning off keys, no turning back
-noremap jk <es>
+inoremap jk <Esc>
 noremap <esc> <nop>
 noremap <Up> <NOP>
 noremap <Down> <NOP>

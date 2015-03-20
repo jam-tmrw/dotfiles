@@ -1,3 +1,6 @@
+# go here when I launch terminal
+cd $HOME/Desktop/webpass
+
 # modify the prompt to contain git branch name if applicable
 git_prompt_info() {
   current_branch=$(git current-branch 2> /dev/null)
