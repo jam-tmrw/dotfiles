@@ -72,6 +72,10 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+
+  " bind \ (backward slash) to grep shortcut
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Ag<SPACE>
 endif
 
 " Make it obvious where 80 characters is
@@ -108,11 +112,7 @@ nnoremap <leader><leader> <c-^>
 
 " Turning off keys, no turning back
 inoremap jk <Esc>
-noremap <esc> <nop>
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+inoremap <Esc> <NOP>
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
