@@ -1,6 +1,10 @@
 " Leader
 let mapleader = " "
 
+
+map <Leader>i mmgg=G`m<CR>
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
@@ -9,8 +13,11 @@ set history=50
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
+set ignorecase    "don't use case
+set smartcase     "recognize case if I use capitals in search
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set relativenumber "relative numbering
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
