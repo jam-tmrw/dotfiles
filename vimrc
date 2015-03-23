@@ -23,6 +23,10 @@ set relativenumber "relative numbering
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
+  se t_Co=16
+  let g:solarized_termcolors=256
+  set background=dark
+  colorscheme solarized
 endif
 
 if filereadable(expand("~/.vimrc.bundles"))
