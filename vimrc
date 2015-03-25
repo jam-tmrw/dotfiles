@@ -17,7 +17,6 @@ set ignorecase    "don't use case
 set smartcase     "recognize case if I use capitals in search
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
-set relativenumber "relative numbering
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -94,8 +93,8 @@ endif
 " set colorcolumn=+1
 
 " Numbers
-set number
 set numberwidth=5
+set relativenumber
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -117,7 +116,10 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R .<CR>
-set tags=./tags,tags;
+
+" easy replace all in file
+map <Leader>ra :%s/
+
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
@@ -125,6 +127,11 @@ nnoremap <leader><leader> <c-^>
 inoremap jk <Esc>
 inoremap <Esc> <NOP>
 
+" Edit another file in the same directory as the current file (from
+" github/r00k)
+map <Leader>e :Explore<C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+"
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>

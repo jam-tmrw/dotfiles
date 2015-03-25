@@ -5,6 +5,12 @@ export EDITOR=$VISUAL
 # ensure dotfiles bin directory is loaded first
 export PATH="$HOME/.bin:/usr/local/sbin:$PATH"
 
+# Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin:/usr/local/bin
+
+# Load RVM into a shell session *as a function*
+ [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 # load rbenv if available
 if which rbenv &>/dev/null ; then
   eval "$(rbenv init - --no-rehash)"
