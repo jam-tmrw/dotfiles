@@ -21,3 +21,6 @@ export PATH=".git/safe/../../bin:$PATH"
 
 # Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
+
+# Alias correct homebrew installed programs
+alias ctags='/usr/local/bin/ctags
