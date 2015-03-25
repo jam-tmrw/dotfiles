@@ -1,6 +1,3 @@
-# go here when I launch terminal
-cd $HOME/Desktop/webpass
-
 # modify the prompt to contain git branch name if applicable
 git_prompt_info() {
   current_branch=$(git current-branch 2> /dev/null)
@@ -101,3 +98,6 @@ _load_settings "$HOME/.zsh/configs"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
