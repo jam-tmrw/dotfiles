@@ -1,3 +1,7 @@
+# Alias correct homebrew installed programs
+alias ctags='/usr/local/bin/ctags'
+alias vim='/usr/local/bin/vim'
+
 # use vim as the visual editor
 export VISUAL=vim
 export EDITOR=$VISUAL
@@ -22,5 +26,3 @@ export PATH=".git/safe/../../bin:$PATH"
 # Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
 
-# Alias correct homebrew installed programs
-alias ctags='/usr/local/bin/ctags'
