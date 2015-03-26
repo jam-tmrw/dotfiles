@@ -1,0 +1,29 @@
+#a~/.tmuxinator/dotfiles.yml
+
+name: dotfiles
+root: ~/dotfiles
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window:  rvm use ruby-2.1.4
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+windows:
+  - dotfiles:
+      layout: 22d3,272x62,0,0[272x45,0,0,9,272x16,0,46,10]
+      panes:
+        - vim
+        -
