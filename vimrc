@@ -72,6 +72,13 @@ set expandtab
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
+" PyMatcher for CtrlP
+if !has('python')
+    echo 'In order to use pymatcher plugin, you need +python compiled vim'
+else
+    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
+"
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
@@ -83,10 +90,20 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 
+  "exclude files and directories from ctrlp etc
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
   " bind \ (backward slash) to grep shortcut
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
 endif
+
+" Set delay to prevent extra search
+let g:ctrlp_lazy_update = 350
+
+" Set no file limit, we are building a big project
+let g:ctrlp_max_files = 0
 
 " Make it obvious where 80 characters is
 " set textwidth=80
