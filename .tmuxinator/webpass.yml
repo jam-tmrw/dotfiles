@@ -25,7 +25,7 @@ windows:
   - work:
       layout: 0e64,272x58,0,0[272x43,0,0,0,272x14,0,44{135x14,0,44,4,136x14,136,44,5}]
       panes:
-        - vim
+        - cd ~/Desktop/webpass; vim
         -
         - server: bundle exec rails s
   - www:
