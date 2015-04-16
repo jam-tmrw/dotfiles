@@ -41,9 +41,9 @@ augroup vimrcEx
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
   autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+        \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
 
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
@@ -74,9 +74,9 @@ set list listchars=tab:»·,trail:·,nbsp:·
 
 " PyMatcher for CtrlP
 if !has('python')
-    echo 'In order to use pymatcher plugin, you need +python compiled vim'
+  echo 'In order to use pymatcher plugin, you need +python compiled vim'
 else
-    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 "
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -118,15 +118,14 @@ set relativenumber
 " will use completion if not at beginning
 set wildmode=list:longest,list:full
 function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
 endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
 
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
@@ -140,22 +139,19 @@ map <Leader>ra :%s/
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
-" Turning off keys, no turning back
-inoremap jk <Esc>
-inoremap <Esc> <NOP>
-
 " Edit another file in the same directory as the current file (from
 " github/r00k)
-map <Leader>e :Explore<C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
-"
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
 
-" expand/collaspe splits
+" AutoComplete and Snippets
+imap <Tab> <C-P>
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+set complete=.,b,u,]
+
+" expand/collaspe splits horizontially
 nnoremap <Leader>f <C-w>\|<C-w>
 nnoremap <Leader>b <C-w>=<C-w>
 
