@@ -93,4 +93,8 @@ _load_settings "$HOME/.zsh/configs"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
+# fasd
+source /usr/local/bin/fasd
+alias v='a -e vim' # quick opening files with vim
+alias at='a -e atom' # quick opening files with atom
+eval "$(fasd --init auto)"
