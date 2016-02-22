@@ -111,7 +111,7 @@ let g:ctrlp_max_files = 0
 
 " Numbers
 set numberwidth=5
-set relativenumber
+set number
 
 " Tab completion
 " will insert tab at beginning of line,

@@ -98,3 +98,5 @@ source /usr/local/bin/fasd
 alias v='a -e vim' # quick opening files with vim
 alias at='a -e atom' # quick opening files with atom
 eval "$(fasd --init auto)"
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
