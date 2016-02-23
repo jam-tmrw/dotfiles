@@ -22,11 +22,12 @@ set autowrite     " Automatically :write before running commands
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
-  se t_Co=16
-  let g:solarized_termcolors=256
   set background=dark
   colorscheme solarized
 endif
+
+" airline tabs
+let g:airline#extensions#tabline#enabled = 1
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -99,6 +100,9 @@ if executable('ag')
   nnoremap \ :Ag<SPACE>
 endif
 
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
 " Set delay to prevent extra search
 let g:ctrlp_lazy_update = 350
 
@@ -136,8 +140,14 @@ map <Leader>ct :!ctags -R .<CR>
 " easy replace all in file
 map <Leader>ra :%s/
 
+" find and replace selected word
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
+
+" quick save
+nnoremap <C-s> :w<CR>
 
 " Edit another file in the same directory as the current file (from
 " github/r00k)
@@ -154,6 +164,14 @@ set complete=.,b,u,]
 " expand/collaspe splits horizontially
 nnoremap <Leader>f <C-w>\|<C-w>
 nnoremap <Leader>b <C-w>=<C-w>
+
+" neovim terminal
+if has('nvim') && exists(':tnoremap')
+  tnoremap <c-w>j <c-\><c-n><c-w>j
+  tnoremap <c-w>k <c-\><c-n><c-w>k
+  tnoremap <c-w>h <c-\><c-n><c-w>h
+  tnoremap <c-w>l <c-\><c-n><c-w>l
+endif
 
 " vim-rspec mappings
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
