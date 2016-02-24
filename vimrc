@@ -73,6 +73,17 @@ set expandtab
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
+
+
+" go to vimrc
+map <Leader>vi :tabe ~/.vimrc<CR>
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" airline fonts
+let g:airline_powerline_fonts = 1
+
 " PyMatcher for CtrlP
 if !has('python')
   echo 'In order to use pymatcher plugin, you need +python compiled vim'
@@ -92,7 +103,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 
   "exclude files and directories from ctrlp etc
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
   let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
   " bind \ (backward slash) to grep shortcut
@@ -149,6 +159,9 @@ nnoremap <leader><leader> <c-^>
 " quick save
 nnoremap <C-s> :w<CR>
 
+" quick close buffer
+nnoremap <C-q> :bd<CR>
+
 " Edit another file in the same directory as the current file (from
 " github/r00k)
 map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
@@ -172,6 +185,9 @@ if has('nvim') && exists(':tnoremap')
   tnoremap <c-w>h <c-\><c-n><c-w>h
   tnoremap <c-w>l <c-\><c-n><c-w>l
 endif
+
+" This unsets the last search pattern register by hitting return
+nnoremap <CR> :noh<CR><CR>
 
 " vim-rspec mappings
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
