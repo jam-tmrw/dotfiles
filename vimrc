@@ -75,8 +75,9 @@ set list listchars=tab:»·,trail:·,nbsp:·
 
 
 
-" go to vimrc
-map <Leader>vi :tabe ~/.vimrc<CR>
+" go to vimrc/bundle
+map <Leader>vi :e  ~/.vimrc<CR>
+map <Leader>vb :e  ~/.vimrc.bundles<CR>
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
@@ -109,6 +110,9 @@ if executable('ag')
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
 endif
+
+" search buffers with ctrl-p
+map <Leader>b :CtrlPBuffer<CR>
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -165,37 +169,24 @@ nnoremap <C-q> :bd<CR>
 " Edit another file in the same directory as the current file (from
 " github/r00k)
 map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
-" AutoComplete and Snippets
-imap <Tab> <C-P>
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-set complete=.,b,u,]
-
-" expand/collaspe splits horizontially
-nnoremap <Leader>f <C-w>\|<C-w>
-nnoremap <Leader>b <C-w>=<C-w>
-
-" neovim terminal
-if has('nvim') && exists(':tnoremap')
-  tnoremap <c-w>j <c-\><c-n><c-w>j
-  tnoremap <c-w>k <c-\><c-n><c-w>k
-  tnoremap <c-w>h <c-\><c-n><c-w>h
-  tnoremap <c-w>l <c-\><c-n><c-w>l
-endif
-
 " This unsets the last search pattern register by hitting return
-nnoremap <CR> :noh<CR><CR>
+nnoremap <Leader>h :noh<CR>
 
-" vim-rspec mappings
-nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>s :call RunNearestSpec()<CR>
+
+" neosnippet key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" neoterm
+nnoremap <Leader>t :T<CR><CR>
+nnoremap <Leader>tn :Tnew<CR>
+
+" rspec
 nnoremap <Leader>l :call RunLastSpec()<CR>
-
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -209,10 +200,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-" configure syntastic syntax checking to check on open as well as save
-let g:syntastic_check_on_open=1
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.

@@ -26,6 +26,7 @@ alias migrate="rake db:migrate db:rollback && rake db:migrate"
 alias m="migrate"
 alias rk="rake"
 alias s="rspec"
+alias cpd="cap production deploy"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
