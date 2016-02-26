@@ -17,6 +17,7 @@ set ignorecase    "don't use case
 set smartcase     "recognize case if I use capitals in search
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set clipboard+=unnamedplus
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -149,7 +150,7 @@ inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Index ctags from any project, including those outside Rails
-map <Leader>ct :!ctags -R .<CR>
+map <Leader>tc :!ctags -R .<CR>
 
 " easy replace all in file
 map <Leader>ra :%s/
@@ -182,8 +183,20 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " neoterm
-nnoremap <Leader>t :T<CR><CR>
+nnoremap <Leader>c :T<SPACE>
+" hide terminal
+nnoremap <Leader>tt :Ttoggle<cr>
+" clear terminal
+nnoremap <Leader>tl :call neoterm#clear()<cr>
+" kills the current job (send a <c-c>)
+nnoremap <Leader>tk :call neoterm#kill()<cr>
 nnoremap <Leader>tn :Tnew<CR>
+if has('nvim') && exists(':tnoremap')
+  tnoremap <c-w>j <c-\><c-n><c-w>j
+  tnoremap <c-w>k <c-\><c-n><c-w>k
+  tnoremap <c-w>h <c-\><c-n><c-w>h
+  tnoremap <c-w>l <c-\><c-n><c-w>l
+endif
 
 " rspec
 nnoremap <Leader>l :call RunLastSpec()<CR>
