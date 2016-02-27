@@ -86,6 +86,9 @@ let g:deoplete#enable_at_startup = 1
 " airline fonts
 let g:airline_powerline_fonts = 1
 
+" don't index when I'm outside of project
+let g:ctrlp_working_path_mode = '0'
+
 " PyMatcher for CtrlP
 if !has('python')
   echo 'In order to use pymatcher plugin, you need +python compiled vim'
@@ -155,6 +158,9 @@ map <Leader>tc :!ctags -R .<CR>
 " easy replace all in file
 map <Leader>ra :%s/
 
+" easy replace all in file
+map <Leader>r :s/
+
 " find and replace selected word
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
@@ -176,26 +182,31 @@ map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 " This unsets the last search pattern register by hitting return
 nnoremap <Leader>h :noh<CR>
 
+" tab completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" neosnippet key-mappings.
+" neosnippet key-mappings
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" neoterm
+" new terminal
+nnoremap <Leader>tn :Tnew<CR>
+" terminal command
 nnoremap <Leader>c :T<SPACE>
-" hide terminal
+" goto terminal prompt
+nnoremap <Leader>ti :Topen<CR><bar><C-w>j<bar>i
+" toggle terminal window
 nnoremap <Leader>tt :Ttoggle<cr>
 " clear terminal
-nnoremap <Leader>tl :call neoterm#clear()<cr>
-" kills the current job (send a <c-c>)
 nnoremap <Leader>tk :call neoterm#kill()<cr>
-nnoremap <Leader>tn :Tnew<CR>
+
 if has('nvim') && exists(':tnoremap')
   tnoremap <c-w>j <c-\><c-n><c-w>j
   tnoremap <c-w>k <c-\><c-n><c-w>k
   tnoremap <c-w>h <c-\><c-n><c-w>h
   tnoremap <c-w>l <c-\><c-n><c-w>l
+  tnoremap <c-w>c <c-\><c-n><c-w>k<bar>:Tclose<CR>
 endif
 
 " rspec
