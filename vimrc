@@ -4,6 +4,8 @@ let mapleader = " "
 
 map <Leader>i mmgg=G`m<CR>
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+" linebreak with indent
+imap <C-Return> <CR><CR><C-o>k<S-s> with <S-s>
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -76,7 +78,8 @@ set list listchars=tab:»·,trail:·,nbsp:·
 
 
 
-" go to vimrc/bundle
+" go to dotfiles/vimrc/bundle
+map <Leader>d :e  ~/dotfiles<CR>
 map <Leader>vi :e  ~/.vimrc<CR>
 map <Leader>vb :e  ~/.vimrc.bundles<CR>
 
@@ -192,7 +195,8 @@ inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
 " Close popup by <Space>.
 inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
-let g:UltiSnipsSnippetsDir = "~/dotfiles/vim/snips"
+" snippets
+map <Leader>s :UltiSnipsEdit!<CR>
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
