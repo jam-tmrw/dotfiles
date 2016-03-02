@@ -213,11 +213,11 @@ nnoremap <Leader>tt :Ttoggle<cr>
 nnoremap <Leader>tk :call neoterm#kill()<cr>
 
 if has('nvim') && exists(':tnoremap')
+  tnoremap <c-o> <C-\><C-n><bar>:Tclose<CR>
   tnoremap <c-w>j <c-\><c-n><c-w>j
   tnoremap <c-w>k <c-\><c-n><c-w>k
   tnoremap <c-w>h <c-\><c-n><c-w>h
   tnoremap <c-w>l <c-\><c-n><c-w>l
-  tnoremap <c-w>c <c-\><c-n><c-w>k<bar>:Tclose<CR>
 endif
 
 " rspec
