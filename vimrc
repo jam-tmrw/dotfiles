@@ -88,6 +88,9 @@ let g:neomake_warning_sign = {
             \ 'text': '>>',
             \ 'texthl': 'MyWarningMsg',
             \ }
+" lint window
+map <Leader>lo :lopen<CR>
+map <Leader>lc :lclose<CR>
 
 " go to dotfiles/vimrc/bundle
 map <Leader>d :e  ~/dotfiles<CR>
@@ -151,6 +154,10 @@ let g:ctrlp_max_files = 0
 set numberwidth=5
 set number
 
+" add space before and after in normal mode
+nnoremap [s i<space><ESC>
+nnoremap ]s a<space><ESC>
+
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
@@ -207,7 +214,7 @@ inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
 
 " snippets
-map <Leader>s :UltiSnipsEdit!<CR>
+map <Leader>sn :UltiSnipsEdit!<CR>
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
@@ -238,9 +245,6 @@ if has('nvim') && exists(':tnoremap')
   tnoremap <c-w>h <c-\><c-n><c-w>h
   tnoremap <c-w>l <c-\><c-n><c-w>l
 endif
-
-" rspec
-nnoremap <Leader>l :call RunLastSpec()<CR>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
