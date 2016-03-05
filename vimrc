@@ -77,6 +77,17 @@ set expandtab
 set list listchars=tab:»·,trail:·,nbsp:·
 
 
+" Neomake config
+autocmd BufWritePost,BufEnter * Neomake
+let g:neomake_error_sign = {
+            \ 'text': '>>',
+            \ 'texthl': 'ErrorMsg',
+            \ }
+hi MyWarningMsg ctermbg=3 ctermfg=0
+let g:neomake_warning_sign = {
+            \ 'text': '>>',
+            \ 'texthl': 'MyWarningMsg',
+            \ }
 
 " go to dotfiles/vimrc/bundle
 map <Leader>d :e  ~/dotfiles<CR>
@@ -120,6 +131,8 @@ endif
 
 " search buffers with ctrl-p
 map <Leader>b :CtrlPBuffer<CR>
+" clear cache
+map <Leader>cc :CtrlPClearCache<CR>
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -192,8 +205,6 @@ inoremap <expr><s-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " snippets
 map <Leader>s :UltiSnipsEdit!<CR>
@@ -206,14 +217,22 @@ nnoremap <Leader>tn :Tnew<CR>
 " terminal command
 nnoremap <Leader>c :T<SPACE>
 " goto terminal prompt
-nnoremap <Leader>ti :Topen<CR><bar><C-w>j<bar>i
+nnoremap <Leader>ti :Topen<CR><bar><C-w>j<bar><C-w>j<bar>i
 " toggle terminal window
 nnoremap <Leader>tt :Ttoggle<cr>
 " clear terminal
 nnoremap <Leader>tk :call neoterm#kill()<cr>
 
+" run set test lib
+nnoremap <Leader>rt :call neoterm#test#run('all')<cr>
+nnoremap <Leader>rf :call neoterm#test#run('file')<cr>
+nnoremap <Leader>rn :call neoterm#test#run('current')<cr>
+nnoremap <Leader>rr :call neoterm#test#rerun()<cr>
+
 if has('nvim') && exists(':tnoremap')
   tnoremap <c-o> <C-\><C-n><bar>:Tclose<CR>
+  tnoremap <c-n> <C-\><C-n><bar>:Topen<CR><bar>:Topen<CR>
+  tnoremap <c-v> <C-\><C-n>
   tnoremap <c-w>j <c-\><c-n><c-w>j
   tnoremap <c-w>k <c-\><c-n><c-w>k
   tnoremap <c-w>h <c-\><c-n><c-w>h
