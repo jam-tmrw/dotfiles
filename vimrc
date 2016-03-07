@@ -81,7 +81,7 @@ map <Leader>gs :Gstatus<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>go :Git checkout<CR>
-map <Leader>ga :Git add %:p<CR>
+map <Leader>ga :Git add %:p<CR><CR>
 map <Leader>gaa :Git add -A<CR>
 map <Leader>gr :Gread<CR>
 map <Leader>gw :Gwrite<CR>
@@ -103,8 +103,8 @@ map <Leader>lc :lclose<CR>
 
 " go to dotfiles/vimrc/bundle
 map <Leader>d :e  ~/dotfiles<CR>
-map <Leader>vi :e  ~/.vimrc<CR>
-map <Leader>vb :e  ~/.vimrc.bundles<CR>
+map <Leader>vi :e  ~/dotfiles/vimrc<CR>
+map <Leader>vb :e  ~/dotfiles/vimrc.bundles<CR>
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
