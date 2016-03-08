@@ -1,9 +1,10 @@
 # Alias correct homebrew installed programs
 alias ctags='/usr/local/bin/ctags'
 alias vim='/usr/local/bin/vim'
+alias nvim='/usr/local/bin/nvim'
 
-# use vim as the visual editor
-export VISUAL=vim
+# use nvim as the visual editor
+export VISUAL=nvim
 export EDITOR=$VISUAL
 
 # ensure dotfiles bin directory is loaded first
