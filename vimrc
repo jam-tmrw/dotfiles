@@ -76,15 +76,14 @@ set expandtab
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
-" fugitive
+" fugitive/Git
 map <Leader>gs :Gstatus<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gc :Gcommit<CR>
-map <Leader>go :Git checkout<CR>
-map <Leader>ga :Git add %:p<CR><CR>
-map <Leader>gaa :Git add -A<CR>
-map <Leader>gr :Gread<CR>
-map <Leader>gw :Gwrite<CR>
+map <Leader>ga :Gwrite<CR>
+map <Leader>gaa :T g add -A<CR><bar>:Tclose<CR>
+map <Leader>go :Gread<CR>
+map <Leader>gr :T g reset %<CR><bar>:Tclose<CR>
 
 " Neomake config
 autocmd BufWritePost,BufEnter * Neomake
