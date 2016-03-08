@@ -78,6 +78,7 @@ set list listchars=tab:»·,trail:·,nbsp:·
 
 " fugitive/Git
 nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gaa :Git add -A<CR><CR>
 nnoremap <space>gu :Git reset %<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gc :Gcommit -v -q<CR>
@@ -210,6 +211,9 @@ nnoremap <C-s> :w<CR>
 
 " quick close buffer
 nnoremap <C-q> :bd<CR>
+
+" quick close other windows
+nnoremap <Leader>o :only<CR>
 
 " Edit another file in the same directory as the current file (from
 " github/r00k)
