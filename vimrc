@@ -77,13 +77,20 @@ set expandtab
 set list listchars=tab:»·,trail:·,nbsp:·
 
 " fugitive/Git
-map <Leader>gs :Gstatus<CR>
-map <Leader>gd :Gdiff<CR>
-map <Leader>gc :Gcommit<CR>
-map <Leader>ga :Gwrite<CR>
-map <Leader>gaa :T g add -A<CR><bar>:Tclose<CR>
-map <Leader>go :Gread<CR>
-map <Leader>gr :T g reset %<CR><bar>:Tclose<CR>
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gu :Git reset %<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>go :Git checkout<Space>
 
 " Neomake config
 autocmd BufWritePost,BufEnter * Neomake
