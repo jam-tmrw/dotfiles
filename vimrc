@@ -257,12 +257,13 @@ nnoremap <Leader>rr :call neoterm#test#rerun()<cr>
 
 if has('nvim') && exists(':tnoremap')
   tnoremap <c-o> <C-\><C-n><bar>:Tclose<CR>
-  tnoremap <c-n> <C-\><C-n><bar>:Topen<CR><bar>:Topen<CR>
+  tnoremap <c-i> <c-w>k <c-\><c-n><c-w>k
   tnoremap <c-v> <C-\><C-n>
   tnoremap <c-w>j <c-\><c-n><c-w>j
   tnoremap <c-w>k <c-\><c-n><c-w>k
   tnoremap <c-w>h <c-\><c-n><c-w>h
   tnoremap <c-w>l <c-\><c-n><c-w>l
+  tnoremap <c-r> <c-\><c-n>"*pi
 endif
 
 " Treat <li> and <p> tags like the block tags they are
