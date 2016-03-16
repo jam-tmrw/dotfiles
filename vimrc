@@ -18,8 +18,8 @@ set incsearch     " do incremental searching
 set ignorecase    "don't use case
 set smartcase     "recognize case if I use capitals in search
 set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
 set clipboard+=unnamedplus
+set breakindent
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -28,6 +28,12 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set background=dark
   colorscheme solarized
 endif
+
+" enable AutoSave on Vim startup
+let g:auto_save = 1
+
+" do not save while in insert mode
+let g:auto_save_in_insert_mode = 0
 
 " airline tabs
 let g:airline#extensions#tabline#enabled = 1
@@ -96,14 +102,14 @@ nnoremap <space>go :Git checkout<Space>
 " Neomake config
 autocmd BufWritePost,BufEnter * Neomake
 let g:neomake_error_sign = {
-            \ 'text': '>>',
-            \ 'texthl': 'ErrorMsg',
-            \ }
+      \ 'text': '>>',
+      \ 'texthl': 'ErrorMsg',
+      \ }
 hi MyWarningMsg ctermbg=3 ctermfg=0
 let g:neomake_warning_sign = {
-            \ 'text': '>>',
-            \ 'texthl': 'MyWarningMsg',
-            \ }
+      \ 'text': '>>',
+      \ 'texthl': 'MyWarningMsg',
+      \ }
 " lint window
 map <Leader>lo :lopen<CR>
 map <Leader>lc :lclose<CR>
