@@ -256,6 +256,7 @@ nnoremap <Leader>tt :Ttoggle<cr>
 nnoremap <Leader>tk :call neoterm#kill()<cr>
 
 " run set test lib
+let g:neoterm_npm_lib_cmd = 'spring teaspoon'
 nnoremap <Leader>rt :call neoterm#test#run('all')<cr>
 nnoremap <Leader>rf :call neoterm#test#run('file')<cr>
 nnoremap <Leader>rn :call neoterm#test#run('current')<cr>
@@ -263,7 +264,6 @@ nnoremap <Leader>rr :call neoterm#test#rerun()<cr>
 
 if has('nvim') && exists(':tnoremap')
   tnoremap <c-o> <C-\><C-n><bar>:Tclose<CR>
-  tnoremap <c-i> <c-w>k <c-\><c-n><c-w>k
   tnoremap <c-v> <C-\><C-n>
   tnoremap <c-w>j <c-\><c-n><c-w>j
   tnoremap <c-w>k <c-\><c-n><c-w>k
