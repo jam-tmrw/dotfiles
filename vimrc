@@ -118,6 +118,8 @@ map <Leader>lc :lclose<CR>
 map <Leader>d :e  ~/dotfiles<CR>
 map <Leader>vi :e  ~/dotfiles/vimrc<CR>
 map <Leader>vb :e  ~/dotfiles/vimrc.bundles<CR>
+map <Leader>vr :so %<CR>
+
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
@@ -159,8 +161,9 @@ map <Leader>b :CtrlPBuffer<CR>
 " clear cache
 map <Leader>cc :CtrlPClearCache<CR>
 
-" bind K to grep word under cursor
+" bind K to grep word under cursor or visually selected text
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+vnoremap K y :grep! <C-R>"<CR>:cw<CR>
 
 " Set delay to prevent extra search
 let g:ctrlp_lazy_update = 350
@@ -263,8 +266,9 @@ nnoremap <Leader>rn :call neoterm#test#run('current')<cr>
 nnoremap <Leader>rr :call neoterm#test#rerun()<cr>
 
 if has('nvim') && exists(':tnoremap')
-  tnoremap <c-o> <C-\><C-n><bar>:Tclose<CR>
-  tnoremap <c-v> <C-\><C-n>
+  tnoremap <c-k> <C-\><C-n><bar>:Tclose<CR>
+  tnoremap <c-o> <C-\><C-n><c-w>k
+  tnoremap <c-v> <C-\><C-n><c-w>
   tnoremap <c-w>j <c-\><c-n><c-w>j
   tnoremap <c-w>k <c-\><c-n><c-w>k
   tnoremap <c-w>h <c-\><c-n><c-w>h

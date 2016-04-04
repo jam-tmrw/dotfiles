@@ -1,0 +1,189 @@
+#
+#  React snippets
+#
+
+snippet cdm "component did mount" b
+componentDidMount: functionfunction() {
+	${1}
+},$0
+endsnippet
+
+snippet cdup "component did update" b
+componentDidUpdate: function(prevProps, prevState) {
+	${1}
+},$0
+endsnippet
+
+snippet cwm "component will mount" b
+componentWillMount: functionfunction() {
+	${1}
+},$0
+endsnippet
+
+snippet cwr "component will receive props" b
+componentWillReceiveProps: function(nextProps) {
+	${1}
+},$0
+endsnippet
+
+snippet cwun "component will unmount" b
+componentWillUnmount: functionfunction() {
+	${1}
+},$0
+endsnippet
+
+snippet cwu "component will update" b
+componentWillUpdate: function(nextProps, nextState) {
+	${1}
+},$0
+endsnippet
+
+snippet cx
+cx({
+	${1}: ${2}
+});
+endsnippet
+
+snippet fup
+forceUpdate(${1:callback});
+endsnippet
+
+snippet gdp "get default props" b
+getDefaultProps: functionfunction() {
+	return {
+		${1}
+	};
+},$0
+endsnippet
+
+snippet gis "get initial state" b
+getInitialState: functionfunction() {
+	return {
+		${1}: ${2}
+	};
+},$0
+endsnippet
+
+snippet ism "is mounted"
+isMountedfunction()
+endsnippet
+
+snippet pt "propTypes" b
+propTypes: {
+	${1}: React.PropTypes.${2:string}
+},
+endsnippet
+
+snippet rcc "create class/component" b
+var ${1:ClassName} = React.createClass({
+
+render: functionfunction() {
+	return (
+		${VISUAL}$2
+	);
+}
+
+});
+$0
+endsnippet
+
+snippet ren
+render: functionfunction() {
+	return (
+		${1:<div />}
+	);
+}$0
+endsnippet
+
+snippet sst "set state" b
+this.setState({
+	${1}: ${2}
+});$0
+endsnippet
+
+snippet scu "should component update"
+shouldComponentUpdate: function(nextProps, nextState) {
+	${1}
+},$0
+endsnippet
+
+snippet props "get property" i
+this.props.${1}
+endsnippet
+
+snippet state "get state" i
+this.state.${1}
+endsnippet
+
+snippet trp
+this.transferPropsTo(${VISUAL}$0);
+endsnippet
+
+
+## chai ##
+
+snippet e "expect" b
+expect(${1:object}).to.
+endsnippet
+
+snippet e! "expect not" b
+expect(${1:object}).to.not.
+endsnippet
+
+snippet .= "equal" i
+.equal ${1:value}
+endsnippet
+
+snippet .e "deeply equal" i
+.eql ${1:object}
+endsnippet
+
+snippet .bt "be true" i
+.be.true
+endsnippet
+
+snippet .bn "be null" i
+.be.null
+endsnippet
+
+snippet .be "be empty" i
+.be.empty
+endsnippet
+
+## mocha ##
+
+snippet desc "describe verbose"
+describe('${1:`!p snip.rv = fn.split(os.extsep)[0]`}', function() {
+	$0
+});
+endsnippet
+
+snippet it "it"
+it('${1:It}', function() {
+	$0
+});
+endsnippet
+
+snippet bee "beforeEach"
+beforeEach(function() {
+	$0
+});
+endsnippet
+
+snippet afe "afterEach"
+afterEach(function() {
+	$0
+});
+endsnippet
+
+snippet before "before"
+before(function() {
+	$0
+});
+endsnippet
+
+snippet after "after"
+after(function() {
+	$0
+});
+endsnippet
