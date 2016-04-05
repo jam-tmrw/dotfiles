@@ -55,6 +55,7 @@ augroup vimrcEx
         \   exe "normal g`\"" |
         \ endif
 
+  autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -118,8 +119,17 @@ map <Leader>lc :lclose<CR>
 map <Leader>d :e  ~/dotfiles<CR>
 map <Leader>vi :e  ~/dotfiles/vimrc<CR>
 map <Leader>vb :e  ~/dotfiles/vimrc.bundles<CR>
-map <Leader>vr :so %<CR>
+map <Leader>vr :so ~/dotfiles/vimrc<CR>
 
+" app navigation
+map <Leader>vh :e ~/Desktop/webpass<CR>
+
+" go to task lists
+map <Leader>vp :e  ~/Dropbox/personal.md<CR>
+map <Leader>vw :e  ~/Dropbox/work.md<CR>
+
+" markdown
+let g:vim_markdown_folding_disabled = 1
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
