@@ -99,6 +99,7 @@ nnoremap <space>gp :Ggrep<Space>
 nnoremap <space>gm :Gmove<Space>
 nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
+nnoremap <space>grb :Gread! show branch:%<Space>
 
 " Neomake config
 autocmd BufWritePost,BufEnter * Neomake
@@ -128,6 +129,7 @@ map <Leader>vh :e ~/Desktop/webpass<CR>
 map <Leader>vp :e  ~/Dropbox/personal.md<CR>
 map <Leader>vw :e  ~/Dropbox/work.md<CR>
 
+nnoremap Q @a
 " markdown
 let g:vim_markdown_folding_disabled = 1
 
