@@ -139,49 +139,26 @@ let g:deoplete#enable_at_startup = 1
 " airline fonts
 let g:airline_powerline_fonts = 1
 
-" don't index when I'm outside of project
-let g:ctrlp_working_path_mode = '0'
-
-" PyMatcher for CtrlP
-if !has('python')
-  echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
+" Fuzzy file finder
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
+nnoremap <c-p> :FZF<cr>
+map <Leader>b :Buffers<cr>
 "
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 1
-
-  "exclude files and directories from ctrlp etc
-  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
   " bind \ (backward slash) to grep shortcut
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
 endif
-
-" search buffers with ctrl-p
-map <Leader>b :CtrlPBuffer<CR>
-" clear cache
-map <Leader>cc :CtrlPClearCache<CR>
 
 " bind K to grep word under cursor or visually selected text
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 vnoremap K y :grep! <C-R>"<CR>:cw<CR>
-
-" Set delay to prevent extra search
-let g:ctrlp_lazy_update = 350
-
-" Set no file limit, we are building a big project
-let g:ctrlp_max_files = 0
 
 " Make it obvious where 80 characters is
 " set textwidth=80
@@ -278,9 +255,7 @@ nnoremap <Leader>rn :call neoterm#test#run('current')<cr>
 nnoremap <Leader>rr :call neoterm#test#rerun()<cr>
 
 if has('nvim') && exists(':tnoremap')
-  tnoremap <c-k> <C-\><C-n><bar>:Tclose<CR>
   tnoremap <c-o> <C-\><C-n><c-w>k
-  tnoremap <c-v> <C-\><C-n><c-w>
   tnoremap <c-w>j <c-\><c-n><c-w>j
   tnoremap <c-w>k <c-\><c-n><c-w>k
   tnoremap <c-w>h <c-\><c-n><c-w>h
