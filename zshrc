@@ -102,5 +102,5 @@ eval "$(fasd --init auto)"
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='if [ -f cscope.files ]; then cat cscope.files; else find ./ -type f
-; fi'
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
