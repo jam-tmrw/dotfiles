@@ -34,5 +34,7 @@ alias wt="nvim ~/Dropbox/work.md"
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Include custom aliases
-alias prod='ssh production -t "cd /var/www/webpass/current/work; bash"'
+alias prod='ssh prod -t "cd /var/www/webpass/current/work; bash"'
+alias stag='ssh stag -t "cd /var/www/webpass/current/work; bash"'
+alias stag2='ssh stag -t "cd /var/www/webpass2/current/work; bash"'
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local

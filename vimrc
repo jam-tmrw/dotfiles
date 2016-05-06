@@ -31,6 +31,7 @@ endif
 
 " enable AutoSave on Vim startup
 let g:auto_save = 1
+let g:auto_save_keep_marks = 0
 
 " do not save while in insert mode
 let g:auto_save_in_insert_mode = 0
@@ -43,6 +44,11 @@ if filereadable(expand("~/.vimrc.bundles"))
 endif
 
 filetype plugin indent on
+
+autocmd VimEnter * Tnew
+autocmd VimEnter * Tclose
+autocmd VimEnter * Tnew
+autocmd VimEnter * Tclose
 
 augroup vimrcEx
   autocmd!
@@ -129,6 +135,9 @@ map <Leader>vh :e ~/Desktop/webpass<CR>
 map <Leader>vp :e  ~/Dropbox/personal.md<CR>
 map <Leader>vw :e  ~/Dropbox/work.md<CR>
 
+" select pasted text
+nnoremap <Leader>vl `[v`]
+
 nnoremap Q @a
 " markdown
 let g:vim_markdown_folding_disabled = 1
@@ -145,7 +154,8 @@ let g:fzf_action = {
       \ 'ctrl-v': 'vsplit'
       \ }
 nnoremap <c-p> :FZF<cr>
-map <Leader>b :Buffers<cr>
+nnoremap <c-t> :Tags<cr>
+nnoremap <leader>b :Buffers<cr>
 "
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -238,12 +248,19 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " new terminal
 nnoremap <Leader>tn :Tnew<CR>
+nnoremap <Leader>as :T1 cd work; rails s<CR>
+nnoremap <Leader>ai :Topen1<CR><bar><C-w>j<bar><C-w>j<bar>i
+nnoremap <Leader>ao :Topen1<CR>
+nnoremap <Leader>ac :Tclose1<CR>
+nnoremap <Leader>tt :Ttoggle<CR>
+
 " terminal command
-nnoremap <Leader>c :T<SPACE>
+nnoremap <Leader>c :T1<SPACE>
 " goto terminal prompt
-nnoremap <Leader>ti :Topen<CR><bar><C-w>j<bar><C-w>j<bar>i
+nnoremap <Leader>ti :Topen2<CR><bar><C-w>j<bar><C-w>j<bar>i
+nnoremap <Leader>to :Topen2<CR>
 " toggle terminal window
-nnoremap <Leader>tt :Ttoggle<cr>
+nnoremap <Leader>tc :Tclose2<cr>
 " clear terminal
 nnoremap <Leader>tk :call neoterm#kill()<cr>
 
