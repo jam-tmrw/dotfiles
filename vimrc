@@ -29,9 +29,12 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   colorscheme solarized
 endif
 
+"select pasted text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
 " enable AutoSave on Vim startup
 let g:auto_save = 1
-let g:auto_save_keep_marks = 0
+let g:auto_save_keep_marks = 1
 
 " do not save while in insert mode
 let g:auto_save_in_insert_mode = 0
