@@ -266,6 +266,7 @@ nnoremap <Leader>rr :call neoterm#test#rerun()<cr>
 
 if has('nvim') && exists(':tnoremap')
   tnoremap <c-o> <C-\><C-n><c-w>k
+  tnoremap <c-v> <C-\><C-n>
   tnoremap <c-w>j <c-\><c-n><c-w>j
   tnoremap <c-w>k <c-\><c-n><c-w>k
   tnoremap <c-w>h <c-\><c-n><c-w>h
