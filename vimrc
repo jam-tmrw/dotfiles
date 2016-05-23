@@ -257,21 +257,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " new terminal
-nnoremap <Leader>tn :Tnew<CR>
-nnoremap <Leader>as :T1 cd work; rails s<CR>
-nnoremap <Leader>ao :Topen1<CR>
-nnoremap <Leader>ac :Tclose1<CR>
 nnoremap <Leader>tt :Ttoggle<CR>
-
-" terminal command
-nnoremap <Leader>c :T1<SPACE>
-" goto terminal prompt
-nnoremap <Leader>to :Topen2<CR>
-" toggle terminal window
-nnoremap <Leader>tc :Tclose2<cr>
-" clear terminal
-nnoremap <Leader>tk :call neoterm#kill()<cr>
-
 " run set test lib
 nnoremap <Leader>rt :call neoterm#test#run('all')<cr>
 nnoremap <Leader>rf :call neoterm#test#run('file')<cr>
