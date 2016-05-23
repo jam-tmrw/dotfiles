@@ -125,6 +125,13 @@ let g:neomake_warning_sign = {
 map <Leader>lo :lopen<CR>
 map <Leader>lc :lclose<CR>
 
+" emmet
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
 " go to dotfiles/vimrc/bundle
 map <Leader>d :e  ~/dotfiles<CR>
 map <Leader>vi :e  ~/dotfiles/vimrc<CR>
@@ -252,7 +259,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " new terminal
 nnoremap <Leader>tn :Tnew<CR>
 nnoremap <Leader>as :T1 cd work; rails s<CR>
-nnoremap <Leader>ai :Topen1<CR><bar><C-w>j<bar><C-w>j<bar>i
 nnoremap <Leader>ao :Topen1<CR>
 nnoremap <Leader>ac :Tclose1<CR>
 nnoremap <Leader>tt :Ttoggle<CR>
@@ -260,7 +266,6 @@ nnoremap <Leader>tt :Ttoggle<CR>
 " terminal command
 nnoremap <Leader>c :T1<SPACE>
 " goto terminal prompt
-nnoremap <Leader>ti :Topen2<CR><bar><C-w>j<bar><C-w>j<bar>i
 nnoremap <Leader>to :Topen2<CR>
 " toggle terminal window
 nnoremap <Leader>tc :Tclose2<cr>
@@ -268,7 +273,6 @@ nnoremap <Leader>tc :Tclose2<cr>
 nnoremap <Leader>tk :call neoterm#kill()<cr>
 
 " run set test lib
-let g:neoterm_npm_lib_cmd = 'spring teaspoon'
 nnoremap <Leader>rt :call neoterm#test#run('all')<cr>
 nnoremap <Leader>rf :call neoterm#test#run('file')<cr>
 nnoremap <Leader>rn :call neoterm#test#run('current')<cr>
