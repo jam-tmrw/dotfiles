@@ -166,20 +166,14 @@ let g:fzf_action = {
 nnoremap <c-p> :FZF<cr>
 nnoremap <c-t> :Tags<cr>
 nnoremap <leader>b :Buffers<cr>
-"
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
 
-  " bind \ (backward slash) to grep shortcut
-  nnoremap \ :Ag<SPACE>
-endif
-
+" bind \ (backward slash) to ag shortcut
+nnoremap \ :Grepper -tool ag -grepprg ag -Q<cr>
 " bind K to grep word under cursor or visually selected text
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-vnoremap K y :grep! <C-R>"<CR>:cw<CR>
+nnoremap K :Grepper -tool ag -cword -noprompt<cr>
+xmap K <plug>(GrepperOperator)
 
+nnoremap <leader>git :Grepper -tool git -noswitch<cr>
 " Make it obvious where 80 characters is
 " set textwidth=80
 " set colorcolumn=+1
@@ -266,7 +260,6 @@ nnoremap <Leader>rr :call neoterm#test#rerun()<cr>
 
 if has('nvim') && exists(':tnoremap')
   tnoremap <c-o> <C-\><C-n><c-w>k
-  tnoremap <c-v> <C-\><C-n>
   tnoremap <c-w>j <c-\><c-n><c-w>j
   tnoremap <c-w>k <c-\><c-n><c-w>k
   tnoremap <c-w>h <c-\><c-n><c-w>h
