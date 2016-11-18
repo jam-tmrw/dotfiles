@@ -111,7 +111,9 @@ nnoremap <space>go :Git checkout<Space>
 nnoremap <space>grb :Gread! show branch:%<Space>
 
 " Neomake config
-autocmd BufWritePost,BufEnter * Neomake
+autocmd! BufWritePost * Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_verbose = 3
 let g:neomake_error_sign = {
       \ 'text': '>>',
       \ 'texthl': 'ErrorMsg',
@@ -147,6 +149,9 @@ map <Leader>vw :e  ~/Dropbox/work.md<CR>
 
 " select pasted text
 nnoremap <Leader>vl `[v`]
+
+" past in insert mode
+inoremap <C-p> <C-R>*
 
 nnoremap Q @a
 " markdown
@@ -246,9 +251,9 @@ inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
 
 " snippets
 map <Leader>sn :UltiSnipsEdit!<CR>
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " new terminal
 nnoremap <Leader>tt :Ttoggle<CR>
