@@ -40,7 +40,7 @@ let g:auto_save_keep_marks = 1
 let g:auto_save_in_insert_mode = 0
 
 " airline tabs
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -111,9 +111,9 @@ nnoremap <space>go :Git checkout<Space>
 nnoremap <space>grb :Gread! show branch:%<Space>
 
 " Neomake config
-autocmd! BufWritePost * Neomake
+autocmd BufWritePost,BufEnter * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_verbose = 3
+let g:neomake_verbose = 0
 let g:neomake_error_sign = {
       \ 'text': '>>',
       \ 'texthl': 'ErrorMsg',
@@ -161,7 +161,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:deoplete#enable_at_startup = 1
 
 " airline fonts
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
 " Fuzzy file finder
 let g:fzf_action = {
@@ -251,9 +251,9 @@ inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
 
 " snippets
 map <Leader>sn :UltiSnipsEdit!<CR>
-" let g:UltiSnipsExpandTrigger="<c-j>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " new terminal
 nnoremap <Leader>tt :Ttoggle<CR>
