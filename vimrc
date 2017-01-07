@@ -187,6 +187,9 @@ nnoremap <leader>git :Grepper -tool git -noswitch<cr>
 set numberwidth=5
 set number
 
+" Incremental commands
+set inccommand=nosplit
+
 " add space before and after in normal mode
 nnoremap [s i<space><ESC>
 nnoremap ]s a<space><ESC>
