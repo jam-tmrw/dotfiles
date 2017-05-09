@@ -240,6 +240,7 @@ nnoremap <Leader>o :only<CR>
 map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+map <Leader>n :new <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " remove last search highlighting
 nnoremap <Leader>h :noh<CR>
